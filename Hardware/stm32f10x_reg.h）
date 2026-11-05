@@ -1,0 +1,36 @@
+#ifndef __STM32F10X_REG_H
+#define __STM32F10X_REG_H
+
+// 寄存器映射
+typedef struct {
+    volatile unsigned int CRL;
+    volatile unsigned int CRH;
+    volatile unsigned int IDR;
+    volatile unsigned int ODR;
+    volatile unsigned int BSRR;
+    volatile unsigned int BRR;
+} GPIO_TypeDef;
+
+typedef struct {
+    volatile unsigned int IMR;
+    volatile unsigned int EMR;
+    volatile unsigned int RTSR;
+    volatile unsigned int FTSR;
+    volatile unsigned int SWIER;
+    volatile unsigned int PR;
+} EXTI_TypeDef;
+
+typedef struct {
+    volatile unsigned int EVCR;
+    volatile unsigned int MAPR;
+    volatile unsigned int EXTICR[4];
+} AFIO_TypeDef;
+
+// 地址强转
+#define GPIOC       ((GPIO_TypeDef *)0x40011000)
+#define GPIOA       ((GPIO_TypeDef *)0x40010800)
+#define EXTI        ((EXTI_TypeDef *)0x40010400)
+#define AFIO        ((AFIO_TypeDef *)0x40010000)
+#define RCC_APB2ENR (*(volatile unsigned int *)0x40021018)
+
+#endif
